@@ -50,8 +50,8 @@ class AdminUsersController extends Controller
         $input = $request->all();
         if ($file = $request->file('photo_id'))
         {
-            $mytime = Carbon::now()->format('d-m-Y');
-            $name = $mytime . $file->getClientOriginalName();
+            $mydate = Carbon::now()->format('d-m-Y');
+            $name = $mydate . $file->getClientOriginalName();
             $file->move('images', $name);
             $photo=Photo::create(['file'=>$name]);
             $input['photo_id'] = $photo->id;
