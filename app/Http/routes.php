@@ -21,8 +21,4 @@ Route::get('/home', 'HomeController@index');
 
 Route::resource('/admin/users', 'AdminUsersController');
 
-// just for testing admin page
-Route::get('/admin', function ()
-{
-    return view('admin.index');
-});
+

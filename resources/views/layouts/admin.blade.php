@@ -116,18 +116,18 @@
                         <!-- /input-group -->
                     </li>
                     <li>
-                        <a href="/admin"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                        <a href="{{route('admin.users.index')}}"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                     </li>
 
                     <li>
                         <a href="#"><i class="fa fa-wrench fa-fw"></i>Users<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="/users">All Users</a>
+                                <a href="{{route('admin.users.index')}}">All Users</a>
                             </li>
 
                             <li>
-                                <a href="/users/create">Create User</a>
+                                <a href="{{route('admin.users.create')}}">Create User</a>
                             </li>
 
                         </ul>
@@ -142,7 +142,7 @@
                             </li>
 
                             <li>
-                                <a href="/posts/create">Create Post</a>
+                                <a href="posts/create">Create Post</a>
                             </li>
 
                         </ul>
@@ -158,7 +158,7 @@
                             </li>
 
                             <li>
-                                <a href="/categories/create">Create Category</a>
+                                <a href="categories/create">Create Category</a>
                             </li>
 
                         </ul>
@@ -170,7 +170,7 @@
                         <a href="#"><i class="fa fa-wrench fa-fw"></i>Media<span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level">
                             <li>
-                                <a href="/media">All Media</a>
+                                <a href="media">All Media</a>
                             </li>
 
                             <li>
@@ -298,11 +298,11 @@
                     <a href="#"><i class="fa fa-wrench fa-fw"></i> Posts<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="">All Posts</a>
+                            <a href="/posts">All Posts</a>
                         </li>
 
                         <li>
-                            <a href="">Create Post</a>
+                            <a href="/posts/create">Create Post</a>
                         </li>
 
                     </ul>
