@@ -3,6 +3,9 @@
 
 @section('content')
 
+    @if(Session::has('user_deleted'))
+        <p class="alert-danger">{{session('user_deleted')}}</p>
+     @endif
     <h1>Users</h1>
     <table class="table">
         <thead>
