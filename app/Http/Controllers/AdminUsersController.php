@@ -61,7 +61,7 @@ class AdminUsersController extends Controller
         if ($file = $request->file('photo_id'))
         {
             $mydate = Carbon::now()->format('d-m-Y');
-            $name = $mydate . $file->getClientOriginalName();
+            $name = $mydate .time(). $file->getClientOriginalName();
             $file->move('images', $name);
             $photo=Photo::create(['file'=>$name]);
             $input['photo_id'] = $photo->id;
@@ -125,7 +125,7 @@ class AdminUsersController extends Controller
         if ($file = $request->file('photo_id'))
         {
             $mydate = Carbon::now()->format('d-m-Y');
-            $name = $mydate . $file->getClientOriginalName();
+            $name = $mydate .time(). $file->getClientOriginalName();
             $file->move('images', $name);
             $photo=Photo::create(['file'=>$name]);
             $input['photo_id'] = $photo->id;
