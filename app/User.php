@@ -57,9 +57,11 @@ class User extends Authenticatable
 
             foreach ($user->posts as $post)
             {
-                //Storage::disk('public')->delete($post->file);
+                if($post->photo){ unlink(public_path().$post->photo->file);}
+                $post->photo->delete();
                 $post->delete();
             }
+
         });
     }
 
