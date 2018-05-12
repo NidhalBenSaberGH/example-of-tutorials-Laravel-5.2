@@ -6,7 +6,7 @@
     <h1>Edit Users</h1>
     <div class="row">
         <div class="col-sm-3">
-            <img src="{{asset($user->photo->file)}}" alt="" class="img-responsive img-rounded" height="100" width="100">
+            <img src="{{asset($user->photo ? asset($user->photo->file): 'http://via.placeholder.com/100x100')}}" alt="" class="img-responsive img-rounded" height="100" width="100">
         </div>
         <div class="col-sm-9">
             {{-- Form::open(['method'=>'PATCH', 'action'=>['AdminUsersController@update', $user->id], 'files'=>true]) --}}

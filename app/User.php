@@ -48,4 +48,19 @@ class User extends Authenticatable
         }
         return false;
     }
+
+    public static function boot ()
+    {
+        parent::boot();
+
+        self::deleting(function (User $user) {
+
+            foreach ($user->posts as $post)
+            {
+                //Storage::disk('public')->delete($post->file);
+                $post->delete();
+            }
+        });
+    }
+
 }
