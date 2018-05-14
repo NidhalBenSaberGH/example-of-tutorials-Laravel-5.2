@@ -144,6 +144,9 @@
                             <li>
                                 <a href="{{route('admin.posts.create')}}">Create Post</a>
                             </li>
+                            <li>
+                                <a href="{{route('admin.comments.index')}}">comments</a>
+                            </li>
 
                         </ul>
                         <!-- /.nav-second-level -->
@@ -180,11 +183,6 @@
                         </ul>
                         <!-- /.nav-second-level -->
                     </li>
-
-
-
-
-
 
 
                     <li>
@@ -346,7 +344,7 @@
 </div>
 <!-- /#wrapper -->
 
-<!-- jQuery -->
+<!-- js -->
 <script src="{{asset('js/libs.js')}}"></script>
 
 @yield('footer')

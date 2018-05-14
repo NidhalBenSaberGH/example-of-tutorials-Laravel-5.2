@@ -12,8 +12,9 @@
             <thead>
             <tr>
                 <th>ID</th>
-                <th>Name</th>
-                <th>Created</th>
+                <th>Author</th>
+                <th>Email</th>
+                <th>Body</th>
                 <th></th>
             </tr>
             </thead>
