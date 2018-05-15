@@ -96,8 +96,10 @@ class PostCommentsController extends Controller
     public function update(Request $request, $id)
     {
         //
-        Comment::findOrFail($id)->update($request->all());
-        return redirect('admin/comments');
+        $comment = Comment::findOrFail($id)->update($request->all());
+        //$post = Post::findOrFail($id);
+
+        return redirect()->back();
     }
 
     /**

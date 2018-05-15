@@ -33,3 +33,8 @@ Route::group(['middleware'=>'admin'], function (){
 
     //Route::get('/admin/media/upload', ['as'=>'admin.media.upload', 'uses'=>'AdminMediasController@upload']);
 });
+
+Route::group(['middleware'=>'auth'], function (){
+
+    Route::post('/comment/reply', 'CommentRepliesController@createReply');
+});
