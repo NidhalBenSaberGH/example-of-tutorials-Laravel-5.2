@@ -1,65 +1,70 @@
 @extends('layouts.admin')
 
-
 @section('content')
 
-    @if(count($comments) > 0)
-        <h1>Comments</h1>
+    @if (count($comments) > 0)
+        <h1>replies</h1>
+
         <table class="table">
             <thead>
             <tr>
-                <th>ID</th>
+                <th>Id</th>
                 <th>Author</th>
                 <th>Email</th>
                 <th>Body</th>
-                <th></th>
-
+                <th>Post</th>
             </tr>
             </thead>
-            @foreach($comments as $comment)
+            <tbody>
+
+
+            @foreach ($comments as $comment)
                 <tr>
+
                     <td>{{$comment->id}}</td>
                     <td>{{$comment->author}}</td>
                     <td>{{$comment->email}}</td>
                     <td>{{$comment->body}}</td>
-                    <td><a href="{{route('home.post', $comment->post->id)}}">View post</a></td>
+                    <td><a href="{{route('home.post', $comment->post->id)}}">View Post</a></td>
                     <td>
-                        @if($comment->is_active == 1)
-
-                            {!! Form::open(['method'=>'PATCH', 'action'=>['PostCommentsController@update',$comment->id]])  !!}
+                        @if ($comment->is_active == 1)
+                            {!! Form::open(['method'=>'PATCH','action'=>['CommentRepliesController@update',$comment->id]]) !!}
                             <input type="hidden" name="is_active" value="0">
-                            <div class="form-group">
-                                {!! Form::submit('Unapprove', ['class'=>'btn btn-info']) !!}
+
+                            <div class='form-group'>
+                                {!! Form::submit('Un-approve',['class'=>'btn btn-success']) !!}
                             </div>
-                            {{ csrf_field() }}
+
                             {!! Form::close() !!}
                         @else
-                            {!! Form::open(['method'=>'PATCH', 'action'=>['PostCommentsController@update',$comment->id]])  !!}
+                            {!! Form::open(['method'=>'PATCH','action'=>['CommentRepliesController@update',$comment->id]]) !!}
                             <input type="hidden" name="is_active" value="1">
-                            <div class="form-group">
-                                {!! Form::submit('Approve', ['class'=>'btn btn-success']) !!}
-                            </div>
-                            {{ csrf_field() }}
-                            {!! Form::close() !!}
 
+                            <div class='form-group'>
+                                {!! Form::submit('Approve',['class'=>'btn btn-info']) !!}
+                            </div>
+
+                            {!! Form::close() !!}
                         @endif
                     </td>
                     <td>
-
-                        {!! Form::open(['method'=>'DELETE', 'action'=>['PostCommentsController@destroy',$comment->id]])  !!}
-                        <div class="form-group">
-                            {!! Form::submit('DELETE', ['class'=>'btn btn-danger']) !!}
+                        {!! Form::open(['method'=>'DELETE','action'=>['CommentRepliesController@destroy',$comment->id]]) !!}
+                        <div class='form-group'>
+                            {!! Form::submit('Delete',['class'=>'btn btn-danger']) !!}
                         </div>
-                        {{ csrf_field() }}
-                        {!! Form::close() !!}
 
+                        {!! Form::close() !!}
                     </td>
+
                 </tr>
             @endforeach
+
+
+            </tbody>
         </table>
+
     @else
-        <h1 class="text-center">No comments</h1>
-
+        <h1 class="text-center">No reply</h1>
     @endif
-@endsection
 
+@endsection
