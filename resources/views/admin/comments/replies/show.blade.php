@@ -26,7 +26,7 @@
                     <td>
                         @if($reply->is_active == 1)
 
-                            {!! Form::open(['method'=>'PATCH', 'action'=>['PostCommentsController@update',$reply->id]])  !!}
+                            {!! Form::open(['method'=>'PATCH', 'action'=>['CommentRepliesController@update',$reply->id]])  !!}
                             <input type="hidden" name="is_active" value="0">
                             <div class="form-group">
                                 {!! Form::submit('Unapprove', ['class'=>'btn btn-info']) !!}
@@ -34,7 +34,7 @@
                             {{ csrf_field() }}
                             {!! Form::close() !!}
                         @else
-                            {!! Form::open(['method'=>'PATCH', 'action'=>['PostCommentsController@update',$reply->id]])  !!}
+                            {!! Form::open(['method'=>'PATCH', 'action'=>['CommentRepliesController@update',$reply->id]])  !!}
                             <input type="hidden" name="is_active" value="1">
                             <div class="form-group">
                                 {!! Form::submit('Approve', ['class'=>'btn btn-success']) !!}
@@ -46,7 +46,7 @@
                     </td>
                     <td>
 
-                        {!! Form::open(['method'=>'DELETE', 'action'=>['PostCommentsController@destroy',$reply->id]])  !!}
+                        {!! Form::open(['method'=>'DELETE', 'action'=>['CommentRepliesController@destroy',$reply->id]])  !!}
                         <div class="form-group">
                             {!! Form::submit('DELETE', ['class'=>'btn btn-danger']) !!}
                         </div>
