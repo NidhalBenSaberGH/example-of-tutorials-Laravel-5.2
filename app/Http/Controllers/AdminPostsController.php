@@ -22,8 +22,9 @@ class AdminPostsController extends Controller
      */
     public function index()
     {
-        //
-        $posts = Post::all();
+        //$posts = Post::all();
+        // pagination
+        $posts = Post::paginate(2);
         return view('admin.posts.index', compact('posts'));
     }
 
@@ -49,6 +50,9 @@ class AdminPostsController extends Controller
     {
         //
         $input = $request->all();
+
+        //$title = str_slug($request->title, '-'); // slug
+
         $user = Auth::user();
 
         if ($file = $request->file('photo_id'))
@@ -132,9 +136,9 @@ class AdminPostsController extends Controller
         return redirect('/admin/posts');
     }
     //
-    public function post($id)
+    public function post($slug)
     {
-        $post = Post::findOrFail($id);
+        $post = Post::findBySlugOrFail($slug);
 
         $comments = $post->comments()->whereIsActive(1)->get(); // approved comments
 

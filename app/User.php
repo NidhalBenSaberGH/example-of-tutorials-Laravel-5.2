@@ -49,7 +49,7 @@ class User extends Authenticatable
         return false;
     }
 
-    public static function boot ()
+    /*public static function boot ()
     {
         parent::boot();
 
@@ -63,6 +63,6 @@ class User extends Authenticatable
             }
 
         });
-    }
+    }*/
 
 }
